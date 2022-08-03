@@ -1,0 +1,79 @@
+@import './styles/base.scss';
+
+:root {
+  --primary-color: rgb(143, 143, 195); //css variable
+  --duration: 2s;
+  --easing: cubic-bezier(0.5, 0, 0.5, 1);
+}
+
+body {
+  --primary-color: rgb(206, 138, 149); //overriding css property in sudo element
+  font-family: 'Open Sans', sans-serif;
+  padding: 5vmin;
+  background-color: var(--primary-color); //using the css variable
+}
+
+a {
+  color: blue;
+}
+
+h1 {
+  margin: 0;
+  color: rgb(110, 2, 2);
+  transition: all 3s;
+
+  &:hover { // & means copy all the style from above
+    font-size: 10vw
+  }
+}
+
+small {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+ul {
+  margin: 1rem 0;
+}
+
+.ball {
+  height: 5vmin;
+  width: 5vmin;
+  left: 50vw;
+  border-radius: 50%;
+  background: radial-gradient(circle at bottom right, #fb2324, #fe932a);
+  background:rgb(138, 50, 65);
+  // animation-name: move-right;
+  // animation-duration: 1s;
+  // animation-iteration-count: 1; //number of times you want to animate a component
+  // animation-fill-mode: both;
+  // transition-property: background,    transform; //this could also be all which will apply to all transitions
+  // transition-timing-function: linear, ease-in-out; // follows the order
+  // transition-duration: 0.5s;
+
+  //all of the above transitions can be replaced by the following:
+  // transition: all 2s 0.5s ease-in-out;
+  // one important thing to keep in mind is the order of duration and delay
+  // duration must always come first followed by delay
+  --duration: 1s;
+  --stagger: 0.5s;
+  --interval: calc(var(--duration) - var(--stagger));
+  animation: move-right var(--duration) calc(var(--interval) * var(--i)) both;
+
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+// to define an animation, we use css keyframes
+// keyframes can also be thought as the timeline of components being animated
+@keyframes move-right {
+ from { //combining befginning and the end together since the animation is none in both
+ // this can alos be called from and to
+  transform: none;
+ }
+ to {
+  transform: translateX(25vw);
+ }
+
+}
