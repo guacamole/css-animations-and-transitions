@@ -8,7 +8,7 @@ Welcome to the [Frontend Masters CSS Animations Workshop](https://frontendmaster
 - Create choreographed, synchronized animation sequences
 - Make CSS animations reactive and dynamic with JavaScript
 - Orchestrate animated transitions easily with state machines
-- Get inspired and experience many animation demos
+- Get inspired and experience many animation.  demos
 
 ## Getting started
 
